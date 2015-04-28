@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Launch World -->
+  <include file="$(find ardrone_sim)/launch/world.launch"/>	
+
+  <!-- Spawn simulated quadrotor uav -->
+  <!--include file="$(find cvg_sim_gazebo)/launch/spawn_quadrotor.launch" >
+    <arg name="model" value="$(find cvg_sim_gazebo)/urdf/quadrotor_sensors.urdf.xacro"/> 
+  </include-->
+
+</launch>

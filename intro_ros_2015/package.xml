@@ -1,0 +1,21 @@
+<package>
+	<name>intro_ros_2015</name>
+	<version>0.0.0</version>
+	<description>Introduction to ROS metapackage</description>
+	<maintainer email="asantamaria@todo.todo">asantamaria</maintainer>
+	<license>BSD</license>
+	<url type="website">http://wiki.ros.org/iri_visual_servo</url>
+1	<run_depend>simple_node</run_depend>	
+	<run_depend>simple_publisher</run_depend>	
+	<run_depend>simple_subscriber</run_depend>		
+	<run_depend>service_client</run_depend>
+	<run_depend>service_server</run_depend>	
+	<run_depend>action_client</run_depend>
+	<run_depend>action_server</run_depend>
+	<run_depend>dynrec_node</run_depend>
+	<run_depend>poserror_node</run_depend>		
+	<buildtool_depend>catkin</buildtool_depend>
+	<export>
+		<metapackage/>
+	</export>
+</package>

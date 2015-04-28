@@ -1,0 +1,16 @@
+<!-- <!DOCTYPE html> -->
+
+<launch>
+
+<node pkg="action" type="action_server" name="action_server" output="screen"/>
+	
+<node pkg="action" type="action_client" name="action_client" output="screen">
+	<remap from="action_client/fibonacci/cancel" to="action_server/fibonacci/cancel"/>
+	<remap from="action_client/fibonacci/feedback" to="action_server/fibonacci/feedback"/>
+	<remap from="action_client/fibonacci/goal" to="action_server/fibonacci/goal"/>
+	<remap from="action_client/fibonacci/result" to="action_server/fibonacci/result"/>
+	<remap from="action_client/fibonacci/status" to="action_server/fibonacci/status"/>	
+</node>		
+
+
+</launch>

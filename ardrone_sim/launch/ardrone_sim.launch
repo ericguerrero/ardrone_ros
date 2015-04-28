@@ -1,0 +1,33 @@
+<!-- <!DOCTYPE html> -->
+<launch>
+
+  <!-- Launch World -->
+  <include file="$(find ardrone_sim)/launch/world.launch"/>	
+
+  <!-- Spawn simulated quadrotor uav -->
+  <include file="$(find ardrone_sim)/launch/spawn_ardrone.launch">
+    <remap from="/ardrone/camera_info" to="/camera/camera_info"/>
+    <remap from="/ardrone/bottom/image_raw" to="/camera/image_raw"/>
+  </include>
+
+  <!-- Rqt reconfigure-->
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
+
+  <!-- Marker-->
+  <node name="ar_pose" pkg ="ar_pose" type="ar_multi" respawn="false" output="screen">
+    <param name="marker_pattern_list" type="string" value="$(find ar_pose)/data/object_4x4_v2"/>
+    <param name="threshold"       type="int"    value="100"/>
+    <param name="use_history"     type="bool"   value="true"/>
+    <remap from="/camera/camera_info" to="/ardrone/camera_info"/>
+    <remap from="/camera/image_raw" to="/ardrone/bottom/image_raw"/>
+  </node>
+<!-- 
+  <node name="ardrone_sim_node" pkg="ardrone_sim" type="ardrone_sim_node"/>
+-->
+  <!-- Rviz-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ardrone_sim)/rviz/marker.rviz"/>
+
+  <!-- Rqt Gui-->
+  <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui"/>
+
+</launch>

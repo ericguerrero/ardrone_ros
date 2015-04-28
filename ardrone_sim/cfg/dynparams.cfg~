@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+
+PACKAGE = "marker_tracker"
+from dynamic_reconfigure.parameter_generator_catkin import *
+
+gen = ParameterGenerator()
+
+
+gen.add("Desired Distance", double_t, 0, "In meters",    .5, 0,   2)
+
+
+exit(gen.generate(PACKAGE, "marker_tracker", "dynparams"))
